@@ -10,8 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import prancingzebra.account.model.LoginRequest;
-import prancingzebra.account.model.RegisterRequest;
+import prancingzebra.model.request.LoginRequest;
+import prancingzebra.model.request.RegisterRequest;
 
 /**
  * Created by jiaweizhang on 2/14/2017.

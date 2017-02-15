@@ -1,4 +1,4 @@
-package prancingzebra.account.model;
+package prancingzebra.model.request;
 
 /**
  * Created by jiaweizhang on 2/14/2017.

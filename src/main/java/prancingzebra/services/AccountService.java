@@ -1,17 +1,17 @@
-package prancingzebra.account;
+package prancingzebra.services;
 
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import prancingzebra.account.model.Account;
-import prancingzebra.account.model.LoginRequest;
-import prancingzebra.account.model.LoginResponse;
-import prancingzebra.account.model.RegisterRequest;
-import prancingzebra.account.repository.AccountRepository;
 import prancingzebra.exceptions.LoginException;
 import prancingzebra.exceptions.RequestValueException;
 import prancingzebra.global.StdResp;
+import prancingzebra.model.domain.Account;
+import prancingzebra.model.request.LoginRequest;
+import prancingzebra.model.request.RegisterRequest;
+import prancingzebra.model.response.LoginResponse;
+import prancingzebra.repository.AccountRepository;
 import prancingzebra.utilities.TokenUtility;
 
 /**

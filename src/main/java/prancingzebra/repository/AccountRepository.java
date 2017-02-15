@@ -1,11 +1,11 @@
-package prancingzebra.account.repository;
+package prancingzebra.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import prancingzebra.account.model.Account;
 import prancingzebra.config.JinqSource;
 import prancingzebra.exceptions.RequestValueException;
+import prancingzebra.model.domain.Account;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

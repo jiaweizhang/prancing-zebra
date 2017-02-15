@@ -3,7 +3,7 @@ package prancingzebra.config;
 import org.jinq.jpa.JPAJinqStream;
 import org.jinq.jpa.JinqJPAStreamProvider;
 import org.springframework.stereotype.Component;
-import prancingzebra.account.model.Account;
+import prancingzebra.model.domain.Account;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,4 +1,4 @@
-package prancingzebra.account.model;
+package prancingzebra.model.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

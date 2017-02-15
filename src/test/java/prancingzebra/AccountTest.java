@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import prancingzebra.account.AccountService;
-import prancingzebra.account.model.Account;
-import prancingzebra.account.model.LoginRequest;
-import prancingzebra.account.model.LoginResponse;
-import prancingzebra.account.model.RegisterRequest;
-import prancingzebra.account.repository.AccountRepository;
 import prancingzebra.global.StdResp;
+import prancingzebra.model.domain.Account;
+import prancingzebra.model.request.LoginRequest;
+import prancingzebra.model.request.RegisterRequest;
+import prancingzebra.model.response.LoginResponse;
+import prancingzebra.repository.AccountRepository;
+import prancingzebra.services.AccountService;
 import prancingzebra.utilities.TokenUtility;
 
 
