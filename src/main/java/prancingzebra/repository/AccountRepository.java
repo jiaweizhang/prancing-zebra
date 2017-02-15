@@ -60,7 +60,7 @@ public class AccountRepository {
 		throw new RequestValueException("Invalid phone number");
 	}
 
-	public void updateVerificationCode(String phoneNumber, String verificationCode, Timestamp expirationTimestamp) {
+	public void updateVerificationCode(String phoneNumber, String name, String verificationCode, Timestamp expirationTimestamp) {
 		if (phoneNumberExists(phoneNumber)) {
 			// update
 			Account account = findByPhoneNumber(phoneNumber);
@@ -70,7 +70,7 @@ public class AccountRepository {
 			em.persist(account);
 		} else {
 			// create new
-			Account account = new Account(null, phoneNumber, null, verificationCode, expirationTimestamp, false);
+			Account account = new Account(name, phoneNumber, null, verificationCode, expirationTimestamp, false);
 			em.persist(account);
 		}
 	}

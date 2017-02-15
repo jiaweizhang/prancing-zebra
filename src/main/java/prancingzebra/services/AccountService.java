@@ -61,6 +61,7 @@ public class AccountService {
 
 		// store code
 		accountRepository.updateVerificationCode(registerPhoneRequest.getPhoneNumber(),
+				registerPhoneRequest.getName(),
 				Integer.toString(randomInt), expirationTimestamp);
 
 		// send SMS with the code to the phone number
