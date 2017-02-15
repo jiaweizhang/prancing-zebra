@@ -23,6 +23,10 @@ public class StdResp {
 		return status;
 	}
 
+	public String getMessage() {
+		return message;
+	}
+
 	public Object getData() {
 		return data;
 	}

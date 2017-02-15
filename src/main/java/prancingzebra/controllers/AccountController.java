@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import prancingzebra.global.Resp;
-import prancingzebra.model.request.LoginRequest;
-import prancingzebra.model.request.RegisterRequest;
+import prancingzebra.model.request.RegisterPasswordRequest;
+import prancingzebra.model.request.RegisterPhoneRequest;
+import prancingzebra.model.request.RegisterVerificationRequest;
 import prancingzebra.services.AccountService;
 
 /**
@@ -26,17 +27,25 @@ public class AccountController {
 		this.accountService = accountService;
 	}
 
-	@RequestMapping(value = "/register",
+	@RequestMapping(value = "/registerPhone",
 			method = RequestMethod.POST,
 			headers = {"Content-type=application/json"})
-	public ResponseEntity register(@RequestBody RegisterRequest registerRequest) {
-		return Resp.wrap(accountService.register(registerRequest));
+	public ResponseEntity registerPhone(@RequestBody RegisterPhoneRequest registerPhoneRequest) {
+		return Resp.wrap(accountService.registerPhone(registerPhoneRequest));
 	}
 
-	@RequestMapping(value = "/login",
+	@RequestMapping(value = "/registerVerification",
 			method = RequestMethod.POST,
 			headers = {"Content-type=application/json"})
-	public ResponseEntity login(@RequestBody LoginRequest loginRequest) {
-		return Resp.wrap(accountService.login(loginRequest));
+	public ResponseEntity registerVerification(@RequestBody RegisterVerificationRequest registerVerificationRequest) {
+		return Resp.wrap(accountService.registerVerification(registerVerificationRequest));
 	}
+
+	@RequestMapping(value = "/registerPassword",
+			method = RequestMethod.POST,
+			headers = {"Content-type=application/json"})
+	public ResponseEntity registerPhone(@RequestBody RegisterPasswordRequest registerPasswordRequest) {
+		return Resp.wrap(accountService.registerPassword(registerPasswordRequest));
+	}
+
 }

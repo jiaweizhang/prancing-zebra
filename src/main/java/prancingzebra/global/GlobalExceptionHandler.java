@@ -37,9 +37,11 @@ public class GlobalExceptionHandler {
 		return Resp.wrap(new StdResp(500, "Internal server error"));
 	}
 
+	/*
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity handleException(Exception e) {
 		log.error(e.getMessage());
 		return Resp.wrap(new StdResp(500, "Internal server error"));
 	}
+	*/
 }

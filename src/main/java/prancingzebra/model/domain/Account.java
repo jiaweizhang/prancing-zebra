@@ -1,32 +1,36 @@
 package prancingzebra.model.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * Created by jiaweizhang on 2/14/2017.
  */
 
 @Entity
-public class Account {
+@Table(name = "accounts")
+public class Account implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long accountId;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String phoneNumber;
-	private String email;
 	private String passhash;
+	private String verificationCode;
+	private Timestamp verificationCodeExpiration;
+	private Boolean registered;
 
-	public Account(String firstName, String lastName, String phoneNumber, String email, String passhash) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public Account(String name, String phoneNumber, String passhash, String verificationCode, Timestamp verificationCodeExpiration, Boolean registered) {
+		this.name = name;
 		this.phoneNumber = phoneNumber;
-		this.email = email;
 		this.passhash = passhash;
+		this.verificationCode = verificationCode;
+		this.verificationCodeExpiration = verificationCodeExpiration;
+		this.registered = registered;
 	}
 
 	protected Account() {
@@ -34,33 +38,63 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return String.format(
-				"Account{accountId=%d, firstName='%s', lastName='%s', phoneNumber='%s', email='%s', passhash='%s'}",
-				accountId, firstName, lastName, phoneNumber, email, passhash);
+		return accountId.toString();
 	}
 
 	public Long getAccountId() {
 		return accountId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public void setAccountId(Long accountId) {
+		this.accountId = accountId;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public String getEmail() {
-		return email;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getPasshash() {
 		return passhash;
+	}
+
+	public void setPasshash(String passhash) {
+		this.passhash = passhash;
+	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
+	public Timestamp getVerificationCodeExpiration() {
+		return verificationCodeExpiration;
+	}
+
+	public void setVerificationCodeExpiration(Timestamp verificationCodeExpiration) {
+		this.verificationCodeExpiration = verificationCodeExpiration;
+	}
+
+	public Boolean getRegistered() {
+		return registered;
+	}
+
+	public void setRegistered(Boolean registered) {
+		this.registered = registered;
 	}
 }
 
