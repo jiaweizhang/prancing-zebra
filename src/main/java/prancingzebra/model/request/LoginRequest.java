@@ -4,24 +4,24 @@ package prancingzebra.model.request;
  * Created by jiaweizhang on 2/14/2017.
  */
 public class LoginRequest {
-	private String phoneNumberOrEmail;
+	private String phoneNumber;
 	private String password;
 
 	public LoginRequest() {
 
 	}
 
-	public LoginRequest(String phoneNumberOrEmail, String password) {
-		this.phoneNumberOrEmail = phoneNumberOrEmail;
+	public LoginRequest(String phoneNumber, String password) {
+		this.phoneNumber = phoneNumber;
 		this.password = password;
 	}
 
-	public String getPhoneNumberOrEmail() {
-		return phoneNumberOrEmail;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhoneNumberOrEmail(String phoneNumberOrEmail) {
-		this.phoneNumberOrEmail = phoneNumberOrEmail;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getPassword() {

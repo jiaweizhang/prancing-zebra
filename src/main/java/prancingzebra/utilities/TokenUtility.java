@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import java.util.Date;
 import java.util.Properties;
 
 /**
@@ -14,6 +15,7 @@ public class TokenUtility {
 		String secretKey = getSecretKey();
 
 		return Jwts.builder().setSubject(Long.toString(accountId))
+				.setExpiration(new Date(System.currentTimeMillis() + 30L * 24L * 3600L * 1000L))
 				.signWith(SignatureAlgorithm.HS256, secretKey).compact();
 	}
 

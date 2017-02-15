@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import prancingzebra.global.Resp;
+import prancingzebra.model.request.LoginRequest;
 import prancingzebra.model.request.RegisterPasswordRequest;
 import prancingzebra.model.request.RegisterPhoneRequest;
 import prancingzebra.model.request.RegisterVerificationRequest;
@@ -46,6 +47,13 @@ public class AccountController {
 			headers = {"Content-type=application/json"})
 	public ResponseEntity registerPhone(@RequestBody RegisterPasswordRequest registerPasswordRequest) {
 		return Resp.wrap(accountService.registerPassword(registerPasswordRequest));
+	}
+
+	@RequestMapping(value = "/login",
+			method = RequestMethod.POST,
+			headers = {"Content-type=application/json"})
+	public ResponseEntity login(@RequestBody LoginRequest loginRequest) {
+		return Resp.wrap(accountService.login(loginRequest));
 	}
 
 }

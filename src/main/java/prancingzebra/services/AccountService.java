@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 import prancingzebra.exceptions.RequestValueException;
 import prancingzebra.global.StdResp;
 import prancingzebra.model.domain.Account;
+import prancingzebra.model.request.LoginRequest;
 import prancingzebra.model.request.RegisterPasswordRequest;
 import prancingzebra.model.request.RegisterPhoneRequest;
 import prancingzebra.model.request.RegisterVerificationRequest;
+import prancingzebra.model.response.LoginResponse;
 import prancingzebra.repository.AccountRepository;
+import prancingzebra.utilities.TokenUtility;
 
 import java.sql.Timestamp;
 import java.util.Random;
@@ -126,5 +129,20 @@ public class AccountService {
 		accountRepository.updatePassword(registerPasswordRequest.getPhoneNumber(), passhash);
 
 		return new StdResp(200, "Successfully registered");
+	}
+
+	public StdResp login(LoginRequest loginRequest) {
+		// make sure account is registered
+		if (!accountRepository.accountIsRegistered(loginRequest.getPhoneNumber())) {
+			throw new RequestValueException("Phone number is not registered");
+		}
+
+		Account account = accountRepository.findByPhoneNumber(loginRequest.getPhoneNumber());
+		if (!passwordEncoder.matches(loginRequest.getPassword(), account.getPasshash())) {
+			return new StdResp(400, "Incorrect password");
+		}
+
+		String jwtToken = TokenUtility.generateToken(account.getAccountId());
+		return new StdResp(200, "Successfully logged in", new LoginResponse(jwtToken));
 	}
 }
